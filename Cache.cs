@@ -12,7 +12,7 @@ namespace TgLib
         #endregion
 
         #region Public methods
-        public CacheModule(TgBot client, TimeSpan? AutoremoveInterval=null)
+        public CacheModule(TgBot client, TimeSpan? AutoremoveInterval = null)
         {
             _client = client;
 
@@ -41,9 +41,9 @@ namespace TgLib
 
         public void AutoclearSetRunning(bool enabled)
         {
-            if(enabled)
+            if (enabled)
                 _autoclearTimer.Start();
-            else 
+            else
                 _autoclearTimer.Stop();
         }
         #endregion

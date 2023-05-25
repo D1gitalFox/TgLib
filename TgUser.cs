@@ -76,7 +76,7 @@ namespace TgLib
         /// </summary>
         public void CancelPendingInput(bool notify = false)
         {
-            if(_client._interactivity.DeleteRequest(this) && notify)
+            if (_client._interactivity.DeleteRequest(this) && notify)
                 _ = SendMessage("Действие отменено.");
         }
         #endregion

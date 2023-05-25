@@ -36,7 +36,7 @@
 
         public bool DeleteRequest(TgUser user)
         {
-            if(PendingInputs.TryGetValue(user.ChatID, out Request? value))
+            if (PendingInputs.TryGetValue(user.ChatID, out Request? value))
             {
                 value.Tcs.SetCanceled();
                 return PendingInputs.Remove(user.ChatID);

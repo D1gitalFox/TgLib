@@ -31,7 +31,7 @@ namespace TgLib
         /// </summary>
         /// <param name="token">Токен Telegram-бота</param>
         /// <exception cref="ArgumentException"></exception>
-        public TgBot(string token) : base(token) 
+        public TgBot(string token) : base(token)
         {
             _interactivity = new InteractivityModule();
             _cache = new CacheModule(this);
@@ -92,7 +92,7 @@ namespace TgLib
         {
             if (user.IsPendingInput)
                 user.CancelPendingInput();
-            foreach (KeyValuePair<string, TgCommand> pair in _registeredCommands.Where((x) => x.Key.Equals(commandName, StringComparison.InvariantCultureIgnoreCase)))
+            foreach (KeyValuePair<string, TgCommand> pair in _registeredCommands.Where((x) => x.Key.Equals(commandName, StringComparison.OrdinalIgnoreCase)))
             {
                 if (InvokeCommand(pair.Value, user, commandArgs))
                     return;
@@ -151,7 +151,7 @@ namespace TgLib
 
         internal void RaiseCommandErrored(CommandContext ctx, Exception ex)
         {
-            if(ex is not TaskCanceledException)
+            if (ex is not TaskCanceledException)
                 _ = CommandErrored?.Invoke(ctx, ex);
         }
 
